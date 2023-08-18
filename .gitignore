@@ -3,7 +3,7 @@ Thumbs.db*
 HELP.md
 .gradle
 build/
-/src/test/
+/src/main/
 
 
 ### STS ###
@@ -43,4 +43,4 @@ out/
 
 ### Exclusions ###
 !gradle/wrapper/gradle-wrapper.jar
-!**/src/main/**
+!**/src/test/**
