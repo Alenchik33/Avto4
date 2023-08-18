@@ -20,7 +20,7 @@ public class AppCardDeliveryTest {
 
 
     @Test
-    public void successfulTest() {
+    public void shouldSendFormSuccessfulTest() {
         open("http://localhost:9999");
         $("[data-test-id='city'] input").setValue("Кемерово");
         String currentDate = generateDate(4, "dd.MM.yyyy");
@@ -33,7 +33,7 @@ public class AppCardDeliveryTest {
         $(".notification__content").shouldHave(Condition.text("Встреча успешно забронирована на " + currentDate), Duration.ofSeconds(15)).shouldBe(visible);
     }
     @Test
-    public void Add7DaysTest() {
+    public void shouldSendFormAdd7DaysTest() {
         open("http://localhost:9999");
         $("[data-test-id='city'] input").setValue("Кемерово");
         String currentDate = generateDate(7, "dd.MM.yyyy");
@@ -46,7 +46,7 @@ public class AppCardDeliveryTest {
         $(".notification__content").shouldHave(Condition.text("Встреча успешно забронирована на " + currentDate), Duration.ofSeconds(15)).shouldBe(visible);
     }
     @Test
-    public void add1DayNegativeTest() {
+    public void shouldReturnErrorAdd1DayNegativeTest() {
         open("http://localhost:9999");
         $("[data-test-id='city'] input").setValue("Кемерово");
         String currentDate = generateDate(1, "dd.MM.yyyy");
@@ -59,7 +59,7 @@ public class AppCardDeliveryTest {
         $$(".input__sub").find(Condition.text("Заказ на выбранную дату не возможен"));
     }
     @Test
-    public void IncorrectPhoneNegativeTest() {
+    public void shouldReturnErrorIncorrectPhoneNegativeTest() {
         open("http://localhost:9999");
         $("[data-test-id='city'] input").setValue("Кемерово");
         String currentDate = generateDate(1, "dd.MM.yyyy");
